@@ -31,11 +31,14 @@
                     <p style="font-family:arial;color:red;font-size:20px;margin: 5px;">Categories</p>
                         <hr>
                         <ul>
-				<li><a href="#" accesskey="2" title="">Funny</a></li>
-				<li><a href="#" accesskey="3" title="">Technology</a></li>
-				<li><a href="#" accesskey="4" title="">Cars</a></li>
+				<li><a href="funny.jsp" accesskey="2" title="">Funny</a></li>
+				<li><a href="technology.jsp" accesskey="3" title="">Technology</a></li>
+				<li><a href="cars.jsp" accesskey="4" title="">Cars</a></li>
                         </ul>			
 		</div>
+                <form method="get" action="/search" id="search">
+                    <input name="q" type="text" size="40" placeholder="Search..." />
+                </form>
 	</div>
         <div id="main">
 		<div id="banner">
@@ -46,21 +49,50 @@
 				<h2>welcome to anti-how-to guides</h2>
 				<span class="byline">a site about how to don't do something</span>
 			</div>
-			<p>In order to use this website you have to <strong>log in</strong>,if you are a registered user or <strong>register now</strong> and avoid getting things wrong...</p>
+			<br>
+                        <%
+                        if ((session.getAttribute("userid") == null) || (session.getAttribute("userid") == "")) {
+                        %>    
+ 
+                        
+			<p>If you want to post your own guide or make a comment you have to <strong>log in</strong>,if you are a registered user or <strong>register now</strong> ! </p>
 			<ul class="actions">
-				<li><a href="http://83.212.114.129:8080/finalproject/web/login.jsp" class="button">Log in</a></li>
+				<li><a href="loginregister.jsp" class="button">login or register </a></li>
                         </ul>
-                        <ul class="actions">
-                                <li><a href="http://83.212.114.129:8080/finalproject/web/register.jsp" class="button">Register</a></li>
-                        </ul>
+                        
 		</div>
-		
+                <br>
+                    
+                   
+                
+                <%} else {
+                %>
+                <p>You are logged in as <strong><%=session.getAttribute("userid")%> <strong></p>
+                    
+                <p>If you want to write a a new post click here</p>
+                <br>
+                <br>
+                <ul class="actions">
+                    <li><a href="newpost.jsp" class="button">Write your story </a></li>
+                </ul>  
+                    
+                    <br>
+                    <br>
+                        <a href='logout.jsp'>Log out</a>
+                <%
+                }
+                %>
+                    
+                    
+		<br>
+                
 		<div id="copyright">
 			<span>Created By Gepapast</a></span>
 			
 		</div>
 	</div>
     </div>
-            
+    
+    
     </body>
 </html>
