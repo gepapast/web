@@ -56,7 +56,7 @@
                             <tbody>
                                 <tr>
                                     <td>Title</td>
-                                    <td><input type="text" name="title" placeholder="Guide title" class="postarea" value="" required /></td>
+                                    <td><input type="text" name="title" placeholder="Guide title" class="titlearea" value="" required /></td>
                                 </tr>
                                 <tr>
                                     <td>Post</td>

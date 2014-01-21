@@ -6,11 +6,13 @@
 
 <%@ page import ="java.sql.*" %>
 <%
+    request.setCharacterEncoding("UTF-8");
+    
     String userid = request.getParameter("uname");    
     String pwd = request.getParameter("pass");
     Class.forName("com.mysql.jdbc.Driver");
     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db",
-            "root", "");
+            "root", "password");
     Statement st = con.createStatement();
     ResultSet rs;
     rs = st.executeQuery("select * from members where uname='" + userid + "' and pass='" + pwd + "'");
